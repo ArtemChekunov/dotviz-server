@@ -33,7 +33,6 @@ func (dot *DotController) Render(res http.ResponseWriter, params martini.Params)
 		return
 	}
 
-	// TODO: add error hendler
 	result, err := godotviz.DotRender(string(graph), format)
 	if err != nil {
 		log.Println(err)
