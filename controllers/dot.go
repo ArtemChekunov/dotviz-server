@@ -23,6 +23,7 @@ func (dot *DotController) Render(res http.ResponseWriter, params martini.Params)
 		log.Println(err)
 		res.WriteHeader(http.StatusBadRequest)
 		res.Write([]byte(fmt.Sprintln(err)))
+		return
 	}
 
 	graph, err := base64.StdEncoding.DecodeString(data)
@@ -33,7 +34,12 @@ func (dot *DotController) Render(res http.ResponseWriter, params martini.Params)
 	}
 
 	// TODO: add error hendler
-	result := godotviz.DotRender(string(graph), format)
+	result, err := godotviz.DotRender(string(graph), format)
+	if err != nil {
+		log.Println(err)
+		res.WriteHeader(http.StatusInternalServerError)
+		return
+	}
 
 	res.Header().Set("Content-Type", "image/"+format)
 	res.Write(result)
