@@ -1,7 +1,5 @@
 package main
 
-// import "github.com/sc0rp1us/godotviz"
-
 import (
 	"github.com/go-martini/martini"
 	"github.com/sc0rp1us/dotviz-server/controllers"
@@ -15,10 +13,3 @@ func main() {
 
 	m.Run()
 }
-
-// func main() {
-// 	result := godotviz.DotRender("graph {a -- b a -- b  b -- a }", "png")
-// 	os.Stdout.Write(result)
-// }
-// Stdout.Write(result)
-// }
