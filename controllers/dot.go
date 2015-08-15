@@ -33,7 +33,7 @@ func (dot *DotController) Render(res http.ResponseWriter, params martini.Params)
 		return
 	}
 
-	result, err := godotviz.DotRender(string(graph), format)
+	result, err := godotviz.DotRender(graph, format)
 	if err != nil {
 		log.Println(err)
 		res.WriteHeader(http.StatusInternalServerError)
