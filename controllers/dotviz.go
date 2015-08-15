@@ -38,7 +38,7 @@ func (dotviz *DotVizController) Render(r render.Render, params martini.Params) {
 	} else {
 		// dotvizresp.FromBase64("TXlTdHJpbmdXV1c=")
 		// dotvizresp.FromBase64("Z3JhcGggewphIC0tIGIgYSAtLSBiICBiIC0tIGEgIHIgLS0gZwp9Cg==")
-		dotvizresp.FromString("graph { a -- b }")
+		dotvizresp.FromString("graph {\n  a -- b  \n}")
 	}
 
 	r.HTML(200, "dotviz", dotvizresp)
