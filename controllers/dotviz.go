@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"encoding/base64"
-	"io/ioutil"
+	"fmt"
 	"net/http"
 
 	"github.com/codegangsta/martini-contrib/render"
@@ -46,12 +46,8 @@ func (dotviz *DotVizController) Render(r render.Render, params martini.Params) {
 
 // New - Method for convertation POST DOT plaintext into base64
 // and Redirect for rendering
-func (dotviz *DotVizController) New(r render.Render, req *http.Request, res http.ResponseWriter) string {
-	dotString, _ := ioutil.ReadAll(req.Body)
-	// return string(dotString)
+func (dotviz *DotVizController) New(r render.Render, req *http.Request, res http.ResponseWriter) {
+	dotString := req.FormValue("text")
 	dotBase64 := base64.StdEncoding.EncodeToString([]byte(dotString))
-	return dotBase64
-	// return string(a)
-	// r.Redirect(fmt.Sprintf("/dotviz/%v", dotBase64))
-
+	r.Redirect(fmt.Sprintf("/dotviz/%v", dotBase64))
 }
