@@ -19,5 +19,10 @@ func main() {
 	dotController := new(controllers.DotController)
 	m.Get("/dot/:format/:data", dotController.Render)
 
+	dotVizController := new(controllers.DotVizController)
+	m.Get("/", dotVizController.Render)
+	m.Get("/dotviz", dotVizController.Render)
+	m.Get("/dotviz/:data", dotVizController.Render)
+	m.Post("/dotviz", dotVizController.New)
 	m.Run()
 }

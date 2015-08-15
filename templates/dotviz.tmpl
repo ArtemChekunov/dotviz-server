@@ -1,0 +1,18 @@
+<form method="post" accept-charset="UTF-8"  action="/dotviz">
+  <table>
+    <tr><td><textarea name="text" cols="120" rows="10">{{.DotString}}</textarea></td></tr>
+    <tr><td><input type="submit" /></td></tr>
+  </table>
+</form>
+
+<table>
+  <tr>
+    <td><a href="/dot/png/{{.DotBase64}}">View as PNG</a></td>
+    <td><a href="/dot/pdf/{{.DotBase64}}">View as PDF</a></td>
+    <td><a href="/dot/svg/{{.DotBase64}}">View as SVG</a></td>
+  <tr>
+</table>
+
+<table border="1">
+  <tr><td><img src="/dot/png/{{.DotBase64}}"></td></tr>
+</table>

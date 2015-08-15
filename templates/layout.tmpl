@@ -1,0 +1,18 @@
+<!-- templates/layout.tmpl -->
+<html>
+  <head>
+    <title>DotViz Server</title>
+  </head>
+  <body>
+    <!-- Render the current template here -->
+    <table>
+      <tr>
+        <td><img src="/img/GraphvizLogo.png" width="150" height="150"></td>
+        <td><h1>DotVizServer - Online Graph Visualization Software</h1></td>
+      <tr>
+    </table>
+    <center>
+    {{ yield }}
+  </center>
+  </body>
+</html>
