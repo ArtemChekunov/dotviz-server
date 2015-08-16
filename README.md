@@ -3,7 +3,9 @@ WebBased DOT language visualization tool
 
 # Description
 
-http://www.graphviz.org/doc/info/command.html
+It is web based tool for rendering DOT language https://en.wikipedia.org/wiki/DOT_(graph_description_language)
+Inspired by plantuml-server.
+Written on golang.
 
 # How to RUN:
 
