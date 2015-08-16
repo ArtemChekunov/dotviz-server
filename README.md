@@ -9,6 +9,7 @@ http://www.graphviz.org/doc/info/command.html
 
 ```
 docker run -d -it -p 1234:1234 --name dotviz-server sc0rp1us/dotviz-server
+# got to http://localhost:1234/
 ```
 
 # How to build own assembly:
