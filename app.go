@@ -1,10 +1,25 @@
 package main
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/codegangsta/martini-contrib/render"
 	"github.com/go-martini/martini"
 	"github.com/sc0rp1us/dotviz-server/controllers"
+
+	"flag"
+	"fmt"
 )
+
+var bindAddr string
+
+func init() {
+	host := flag.String("host", "0.0.0.0", "Set host for binding dotviz-server")
+	port := flag.String("port", "1234", "Set port for binding dotviz-server")
+	flag.Parse()
+	bindAddr = fmt.Sprintf("%v:%v", *host, *port)
+}
 
 func main() {
 	m := martini.Classic()
@@ -24,5 +39,8 @@ func main() {
 	m.Get("/dotviz", dotVizController.Render)
 	m.Get("/dotviz/:data", dotVizController.Render)
 	m.Post("/dotviz", dotVizController.New)
-	m.Run()
+
+	log.Printf("Start listening: %v", bindAddr)
+	log.Fatal(http.ListenAndServe(bindAddr, m))
+
 }
